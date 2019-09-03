@@ -18,10 +18,15 @@ package com.tohsoft.keyboard.latin.settings;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.preference.PreferenceFragment;
 import android.view.inputmethod.InputMethodSubtype;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+
+import com.tohsoft.keyboard.latin.RichInputMethodManager;
+import com.tohsoft.keyboard.latin.RichInputMethodSubtype;
 
 /**
  * Utility class for managing additional features settings.
@@ -44,6 +49,7 @@ public class AdditionalFeaturesSettingUtils {
         // do nothing.
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @NonNull
     public static RichInputMethodSubtype createRichInputMethodSubtype(
             @NonNull final RichInputMethodManager imm,

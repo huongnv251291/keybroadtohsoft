@@ -16,6 +16,7 @@
 
 package com.tohsoft.keyboard.latin.setup;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -33,16 +34,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.VideoView;
 
-import com.android.inputmethod.compat.TextViewCompatUtils;
-import com.android.inputmethod.compat.ViewCompatUtils;
-import com.android.inputmethod.latin.R;
-import com.android.inputmethod.latin.settings.SettingsActivity;
-import com.android.inputmethod.latin.utils.LeakGuardHandlerWrapper;
-import com.android.inputmethod.latin.utils.UncachedInputMethodManagerUtils;
+
+import androidx.annotation.NonNull;
+
+import com.tohsoft.keyboard.R;
+import com.tohsoft.keyboard.compat.TextViewCompatUtils;
+import com.tohsoft.keyboard.compat.ViewCompatUtils;
+import com.tohsoft.keyboard.latin.settings.SettingsActivity;
+import com.tohsoft.keyboard.latin.utils.LeakGuardHandlerWrapper;
+import com.tohsoft.keyboard.latin.utils.UncachedInputMethodManagerUtils;
 
 import java.util.ArrayList;
 
-import javax.annotation.Nonnull;
 
 // TODO: Use Fragment to implement welcome screen and setup steps.
 public final class SetupWizardActivity extends Activity implements View.OnClickListener {
@@ -84,7 +87,7 @@ public final class SetupWizardActivity extends Activity implements View.OnClickL
 
         private final InputMethodManager mImmInHandler;
 
-        public SettingsPoolingHandler(@Nonnull final SetupWizardActivity ownerInstance,
+        public SettingsPoolingHandler(@NonNull final SetupWizardActivity ownerInstance,
                 final InputMethodManager imm) {
             super(ownerInstance);
             mImmInHandler = imm;
@@ -376,6 +379,7 @@ public final class SetupWizardActivity extends Activity implements View.OnClickL
         super.onBackPressed();
     }
 
+    @SuppressLint("ResourceType")
     void hideWelcomeVideoAndShowWelcomeImage() {
         mWelcomeVideoView.setVisibility(View.GONE);
         mWelcomeImageView.setImageResource(R.raw.setup_welcome_image);

@@ -18,7 +18,8 @@ package com.tohsoft.keyboard.latin.utils;
 
 import android.content.Context;
 
-import com.android.inputmethod.latin.R;
+import com.tohsoft.keyboard.R;
+
 
 /**
  * Helper class to get the metadata URI and the additional ID.

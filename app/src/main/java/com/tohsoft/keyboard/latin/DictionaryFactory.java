@@ -21,7 +21,9 @@ import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.util.Log;
 
-import com.android.inputmethod.latin.utils.DictionaryInfoUtils;
+
+import com.tohsoft.keyboard.R;
+import com.tohsoft.keyboard.latin.utils.DictionaryInfoUtils;
 
 import java.io.File;
 import java.util.ArrayList;

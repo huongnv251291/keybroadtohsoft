@@ -19,7 +19,11 @@ package com.tohsoft.keyboard.latin.personalization;
 import android.content.Context;
 import android.util.Log;
 
-import com.android.inputmethod.latin.common.FileUtils;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.tohsoft.common.latin.common.FileUtils;
 
 import java.io.File;
 import java.io.FilenameFilter;
@@ -27,8 +31,6 @@ import java.lang.ref.SoftReference;
 import java.util.Locale;
 import java.util.concurrent.ConcurrentHashMap;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 /**
  * Helps handle and manage personalized dictionaries such as {@link UserHistoryDictionary}.
@@ -40,7 +42,7 @@ public class PersonalizationHelper {
     private static final ConcurrentHashMap<String, SoftReference<UserHistoryDictionary>>
             sLangUserHistoryDictCache = new ConcurrentHashMap<>();
 
-    @Nonnull
+    @NonNull
     public static UserHistoryDictionary getUserHistoryDictionary(
             final Context context, final Locale locale, @Nullable final String accountName) {
         String lookupStr = locale.toString();

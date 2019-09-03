@@ -16,8 +16,9 @@
 
 package com.tohsoft.keyboard.latin.makedict;
 
-import com.android.inputmethod.annotations.UsedForTesting;
-import com.android.inputmethod.latin.define.DecoderSpecificConstants;
+
+import com.tohsoft.common.annotations.UsedForTesting;
+import com.tohsoft.keyboard.latin.define.DecoderSpecificConstants;
 
 import java.util.Date;
 import java.util.HashMap;

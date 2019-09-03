@@ -26,7 +26,8 @@ import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.android.inputmethod.latin.R;
+import com.tohsoft.keyboard.R;
+
 
 public final class SeekBarDialogPreference extends DialogPreference
         implements SeekBar.OnSeekBarChangeListener {
@@ -97,6 +98,7 @@ public final class SeekBarDialogPreference extends DialogPreference
 
     @Override
     protected void onBindDialogView(final View view) {
+        super.onBindDialogView(view);
         final int value = mValueProxy.readValue(getKey());
         mValueView.setText(mValueProxy.getValueText(value));
         mSeekBar.setProgress(getProgressFromValue(clipValue(value)));

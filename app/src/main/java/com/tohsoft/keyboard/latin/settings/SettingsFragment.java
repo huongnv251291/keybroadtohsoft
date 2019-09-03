@@ -27,11 +27,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.android.inputmethod.latin.R;
-import com.android.inputmethod.latin.define.ProductionFlags;
-import com.android.inputmethod.latin.utils.ApplicationUtils;
-import com.android.inputmethod.latin.utils.FeedbackUtils;
-import com.android.inputmethodcommon.InputMethodSettingsFragment;
+import com.tohsoft.inputmenthodcommon.InputMethodSettingsFragment;
+import com.tohsoft.keyboard.R;
+import com.tohsoft.keyboard.latin.define.ProductionFlags;
+import com.tohsoft.keyboard.latin.utils.ApplicationUtils;
+import com.tohsoft.keyboard.latin.utils.FeedbackUtils;
 
 public final class SettingsFragment extends InputMethodSettingsFragment {
     // We don't care about menu grouping.

@@ -18,7 +18,7 @@ package com.tohsoft.keyboard.latin.utils;
 
 import android.util.Log;
 
-import com.android.inputmethod.latin.define.DebugFlags;
+import com.tohsoft.keyboard.latin.define.DebugFlags;
 
 /**
  * A class for logging and debugging utility methods.

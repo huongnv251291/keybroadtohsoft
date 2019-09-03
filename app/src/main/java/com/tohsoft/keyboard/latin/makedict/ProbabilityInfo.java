@@ -16,9 +16,10 @@
 
 package com.tohsoft.keyboard.latin.makedict;
 
-import com.android.inputmethod.annotations.UsedForTesting;
-import com.android.inputmethod.latin.BinaryDictionary;
-import com.android.inputmethod.latin.utils.CombinedFormatUtils;
+
+import com.tohsoft.common.annotations.UsedForTesting;
+import com.tohsoft.keyboard.latin.BinaryDictionary;
+import com.tohsoft.keyboard.latin.utils.CombinedFormatUtils;
 
 import java.util.Arrays;
 

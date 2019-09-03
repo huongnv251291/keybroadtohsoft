@@ -23,21 +23,22 @@ import android.provider.ContactsContract;
 import android.provider.ContactsContract.Contacts;
 import android.util.Log;
 
-import com.android.inputmethod.annotations.ExternallyReferenced;
-import com.android.inputmethod.latin.ContactsManager.ContactsChangedListener;
-import com.android.inputmethod.latin.common.StringUtils;
-import com.android.inputmethod.latin.permissions.PermissionsUtil;
-import com.android.inputmethod.latin.personalization.AccountUtils;
+
+import androidx.annotation.Nullable;
+
+import com.tohsoft.common.annotations.ExternallyReferenced;
+import com.tohsoft.common.latin.common.StringUtils;
+import com.tohsoft.keyboard.latin.permissions.PermissionsUtil;
+import com.tohsoft.keyboard.latin.personalization.AccountUtils;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import javax.annotation.Nullable;
 
 public class ContactsBinaryDictionary extends ExpandableBinaryDictionary
-        implements ContactsChangedListener {
+        implements ContactsManager.ContactsChangedListener {
     private static final String TAG = ContactsBinaryDictionary.class.getSimpleName();
     private static final String NAME = "contacts";
 

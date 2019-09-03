@@ -18,6 +18,7 @@ package com.tohsoft.keyboard.latin.spellcheck;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.preference.PreferenceManager;
 import android.service.textservice.SpellCheckerService;
 import android.text.InputType;
@@ -25,27 +26,29 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodSubtype;
 import android.view.textservice.SuggestionsInfo;
 
-import com.android.inputmethod.keyboard.Keyboard;
-import com.android.inputmethod.keyboard.KeyboardId;
-import com.android.inputmethod.keyboard.KeyboardLayoutSet;
-import com.android.inputmethod.latin.DictionaryFacilitator;
-import com.android.inputmethod.latin.DictionaryFacilitatorLruCache;
-import com.android.inputmethod.latin.NgramContext;
-import com.android.inputmethod.latin.R;
-import com.android.inputmethod.latin.RichInputMethodSubtype;
-import com.android.inputmethod.latin.SuggestedWords;
-import com.android.inputmethod.latin.common.ComposedData;
-import com.android.inputmethod.latin.settings.SettingsValuesForSuggestion;
-import com.android.inputmethod.latin.utils.AdditionalSubtypeUtils;
-import com.android.inputmethod.latin.utils.ScriptUtils;
-import com.android.inputmethod.latin.utils.SuggestionResults;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+
+import com.tohsoft.keyboard.keyboard.Keyboard;
+import com.tohsoft.keyboard.keyboard.KeyboardId;
+import com.tohsoft.keyboard.keyboard.KeyboardLayoutSet;
+import com.tohsoft.keyboard.latin.DictionaryFacilitator;
+import com.tohsoft.keyboard.latin.DictionaryFacilitatorLruCache;
+import com.tohsoft.keyboard.latin.NgramContext;
+import com.tohsoft.keyboard.R;
+import com.tohsoft.keyboard.latin.RichInputMethodSubtype;
+import com.tohsoft.keyboard.latin.SuggestedWords;
+import com.tohsoft.common.latin.common.ComposedData;
+import com.tohsoft.keyboard.latin.settings.SettingsValuesForSuggestion;
+import com.tohsoft.keyboard.latin.utils.AdditionalSubtypeUtils;
+import com.tohsoft.keyboard.latin.utils.ScriptUtils;
+import com.tohsoft.keyboard.latin.utils.SuggestionResults;
 
 import java.util.Locale;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Semaphore;
 
-import javax.annotation.Nonnull;
 
 /**
  * Service for spell checking, using LatinIME's dictionaries and mechanisms.
@@ -170,7 +173,7 @@ public final class AndroidSpellCheckerService extends SpellCheckerService
 
     public SuggestionResults getSuggestionResults(final Locale locale,
             final ComposedData composedData, final NgramContext ngramContext,
-            @Nonnull final Keyboard keyboard) {
+            @NonNull final Keyboard keyboard) {
         Integer sessionId = null;
         mSemaphore.acquireUninterruptibly();
         try {
@@ -211,17 +214,17 @@ public final class AndroidSpellCheckerService extends SpellCheckerService
         return false;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     public Keyboard getKeyboardForLocale(final Locale locale) {
         Keyboard keyboard = mKeyboardCache.get(locale);
         if (keyboard == null) {
             keyboard = createKeyboardForLocale(locale);
-            if (keyboard != null) {
-                mKeyboardCache.put(locale, keyboard);
-            }
+            mKeyboardCache.put(locale, keyboard);
         }
         return keyboard;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     private Keyboard createKeyboardForLocale(final Locale locale) {
         final String keyboardLayoutName = getKeyboardLayoutNameForLocale(locale);
         final InputMethodSubtype subtype = AdditionalSubtypeUtils.createDummyAdditionalSubtype(
@@ -230,6 +233,7 @@ public final class AndroidSpellCheckerService extends SpellCheckerService
         return keyboardLayoutSet.getKeyboard(KeyboardId.ELEMENT_ALPHABET);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     private KeyboardLayoutSet createKeyboardSetForSpellChecker(final InputMethodSubtype subtype) {
         final EditorInfo editorInfo = new EditorInfo();
         editorInfo.inputType = InputType.TYPE_CLASS_TEXT;

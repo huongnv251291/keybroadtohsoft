@@ -18,9 +18,9 @@ package com.tohsoft.keyboard.latin.settings;
 
 import android.os.Bundle;
 
-import com.android.inputmethod.latin.R;
-import com.android.inputmethod.latin.common.Constants;
-import com.android.inputmethod.latin.define.ProductionFlags;
+import com.tohsoft.common.latin.common.Constants;
+import com.tohsoft.keyboard.latin.define.ProductionFlags;
+import com.tohsoft.keyboard.R;
 
 /**
  * "Appearance" settings sub screen.

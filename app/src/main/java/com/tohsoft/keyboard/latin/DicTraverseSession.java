@@ -16,9 +16,10 @@
 
 package com.tohsoft.keyboard.latin;
 
-import com.android.inputmethod.latin.common.NativeSuggestOptions;
-import com.android.inputmethod.latin.define.DecoderSpecificConstants;
-import com.android.inputmethod.latin.utils.JniUtils;
+
+import com.tohsoft.common.latin.common.NativeSuggestOptions;
+import com.tohsoft.keyboard.latin.define.DecoderSpecificConstants;
+import com.tohsoft.keyboard.latin.utils.JniUtils;
 
 import java.util.Locale;
 

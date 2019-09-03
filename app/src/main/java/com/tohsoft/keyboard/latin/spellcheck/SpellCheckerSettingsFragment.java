@@ -23,14 +23,14 @@ import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.text.TextUtils;
 
-import com.android.inputmethod.latin.R;
-import com.android.inputmethod.latin.permissions.PermissionsManager;
-import com.android.inputmethod.latin.permissions.PermissionsUtil;
-import com.android.inputmethod.latin.settings.SubScreenFragment;
-import com.android.inputmethod.latin.settings.TwoStatePreferenceHelper;
-import com.android.inputmethod.latin.utils.ApplicationUtils;
+import com.tohsoft.keyboard.R;
+import com.tohsoft.keyboard.latin.permissions.PermissionsManager;
+import com.tohsoft.keyboard.latin.permissions.PermissionsUtil;
+import com.tohsoft.keyboard.latin.settings.SubScreenFragment;
+import com.tohsoft.keyboard.latin.settings.TwoStatePreferenceHelper;
+import com.tohsoft.keyboard.latin.utils.ApplicationUtils;
 
-import static com.android.inputmethod.latin.permissions.PermissionsManager.get;
+import static com.tohsoft.keyboard.latin.permissions.PermissionsManager.get;
 
 /**
  * Preference screen.

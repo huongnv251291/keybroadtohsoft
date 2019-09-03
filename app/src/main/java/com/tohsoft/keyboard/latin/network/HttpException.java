@@ -16,7 +16,8 @@
 
 package com.tohsoft.keyboard.latin.network;
 
-import com.android.inputmethod.annotations.UsedForTesting;
+
+import com.tohsoft.common.annotations.UsedForTesting;
 
 /**
  * The HttpException exception represents a XML/HTTP fault with a HTTP status code.

@@ -23,9 +23,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.Preference;
 
-import com.android.inputmethod.latin.AudioAndHapticFeedbackManager;
-import com.android.inputmethod.latin.R;
-import com.android.inputmethod.latin.RichInputMethodManager;
+import androidx.annotation.RequiresApi;
+
+import com.tohsoft.keyboard.latin.AudioAndHapticFeedbackManager;
+import com.tohsoft.keyboard.R;
+import com.tohsoft.keyboard.latin.RichInputMethodManager;
 
 /**
  * "Preferences" settings sub screen.
@@ -43,6 +45,7 @@ public final class PreferencesSettingsFragment extends SubScreenFragment {
     private static final boolean VOICE_IME_ENABLED =
             Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN;
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onCreate(final Bundle icicle) {
         super.onCreate(icicle);
@@ -71,6 +74,7 @@ public final class PreferencesSettingsFragment extends SubScreenFragment {
         refreshEnablingsOfKeypressSoundAndVibrationSettings();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onResume() {
         super.onResume();

@@ -18,9 +18,9 @@ package com.tohsoft.keyboard.latin;
 
 import android.util.Log;
 
-import com.android.inputmethod.latin.SuggestedWords.SuggestedWordInfo;
-import com.android.inputmethod.latin.common.ComposedData;
-import com.android.inputmethod.latin.settings.SettingsValuesForSuggestion;
+
+import com.tohsoft.common.latin.common.ComposedData;
+import com.tohsoft.keyboard.latin.settings.SettingsValuesForSuggestion;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -59,22 +59,22 @@ public final class DictionaryCollection extends Dictionary {
     }
 
     @Override
-    public ArrayList<SuggestedWordInfo> getSuggestions(final ComposedData composedData,
-                                                       final NgramContext ngramContext, final long proximityInfoHandle,
-                                                       final SettingsValuesForSuggestion settingsValuesForSuggestion,
-                                                       final int sessionId, final float weightForLocale,
-                                                       final float[] inOutWeightOfLangModelVsSpatialModel) {
+    public ArrayList<SuggestedWords.SuggestedWordInfo> getSuggestions(final ComposedData composedData,
+                                                                      final NgramContext ngramContext, final long proximityInfoHandle,
+                                                                      final SettingsValuesForSuggestion settingsValuesForSuggestion,
+                                                                      final int sessionId, final float weightForLocale,
+                                                                      final float[] inOutWeightOfLangModelVsSpatialModel) {
         final CopyOnWriteArrayList<Dictionary> dictionaries = mDictionaries;
         if (dictionaries.isEmpty()) return null;
         // To avoid creating unnecessary objects, we get the list out of the first
         // dictionary and add the rest to it if not null, hence the get(0)
-        ArrayList<SuggestedWordInfo> suggestions = dictionaries.get(0).getSuggestions(composedData,
+        ArrayList<SuggestedWords.SuggestedWordInfo> suggestions = dictionaries.get(0).getSuggestions(composedData,
                 ngramContext, proximityInfoHandle, settingsValuesForSuggestion, sessionId,
                 weightForLocale, inOutWeightOfLangModelVsSpatialModel);
         if (null == suggestions) suggestions = new ArrayList<>();
         final int length = dictionaries.size();
         for (int i = 1; i < length; ++ i) {
-            final ArrayList<SuggestedWordInfo> sugg = dictionaries.get(i).getSuggestions(
+            final ArrayList<SuggestedWords.SuggestedWordInfo> sugg = dictionaries.get(i).getSuggestions(
                     composedData, ngramContext, proximityInfoHandle, settingsValuesForSuggestion,
                     sessionId, weightForLocale, inOutWeightOfLangModelVsSpatialModel);
             if (null != sugg) suggestions.addAll(sugg);

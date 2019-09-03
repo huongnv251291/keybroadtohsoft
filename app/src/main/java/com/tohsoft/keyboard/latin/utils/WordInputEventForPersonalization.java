@@ -18,11 +18,11 @@ package com.tohsoft.keyboard.latin.utils;
 
 import android.util.Log;
 
-import com.android.inputmethod.annotations.UsedForTesting;
-import com.android.inputmethod.latin.NgramContext;
-import com.android.inputmethod.latin.common.StringUtils;
-import com.android.inputmethod.latin.define.DecoderSpecificConstants;
-import com.android.inputmethod.latin.settings.SpacingAndPunctuations;
+import com.tohsoft.common.annotations.UsedForTesting;
+import com.tohsoft.keyboard.latin.NgramContext;
+import com.tohsoft.common.latin.common.StringUtils;
+import com.tohsoft.keyboard.latin.define.DecoderSpecificConstants;
+import com.tohsoft.keyboard.latin.settings.SpacingAndPunctuations;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -18,14 +18,15 @@ package com.tohsoft.keyboard.latin.network;
 
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 /**
  * A client for executing HTTP requests synchronously.
@@ -61,7 +62,7 @@ public class BlockingHttpClient {
      * @param request The request payload, if any, or null.
      * @param responseProcessor A processor for the HTTP response.
      */
-    public <T> T execute(@Nullable byte[] request, @Nonnull ResponseProcessor<T> responseProcessor)
+    public <T> T execute(@Nullable byte[] request, @NonNull ResponseProcessor<T> responseProcessor)
             throws IOException, AuthException, HttpException {
         if (DEBUG) {
             Log.d(TAG, "execute: " + mConnection.getURL());

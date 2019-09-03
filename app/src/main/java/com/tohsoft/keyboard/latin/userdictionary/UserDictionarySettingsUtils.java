@@ -19,8 +19,8 @@ package com.tohsoft.keyboard.latin.userdictionary;
 import android.content.Context;
 import android.text.TextUtils;
 
-import com.android.inputmethod.latin.R;
-import com.android.inputmethod.latin.common.LocaleUtils;
+import com.tohsoft.keyboard.R;
+import com.tohsoft.common.latin.common.LocaleUtils;
 
 import java.util.Locale;
 

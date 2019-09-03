@@ -24,10 +24,10 @@ import android.os.SystemClock;
 import android.provider.ContactsContract.Contacts;
 import android.util.Log;
 
-import com.android.inputmethod.latin.ContactsManager.ContactsChangedListener;
-import com.android.inputmethod.latin.define.DebugFlags;
-import com.android.inputmethod.latin.permissions.PermissionsUtil;
-import com.android.inputmethod.latin.utils.ExecutorUtils;
+
+import com.tohsoft.keyboard.latin.define.DebugFlags;
+import com.tohsoft.keyboard.latin.permissions.PermissionsUtil;
+import com.tohsoft.keyboard.latin.utils.ExecutorUtils;
 
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -43,14 +43,14 @@ public class ContactsContentObserver implements Runnable {
     private final AtomicBoolean mRunning = new AtomicBoolean(false);
 
     private ContentObserver mContentObserver;
-    private ContactsChangedListener mContactsChangedListener;
+    private ContactsManager.ContactsChangedListener mContactsChangedListener;
 
     public ContactsContentObserver(final ContactsManager manager, final Context context) {
         mManager = manager;
         mContext = context;
     }
 
-    public void registerObserver(final ContactsChangedListener listener) {
+    public void registerObserver(final ContactsManager.ContactsChangedListener listener) {
         if (!PermissionsUtil.checkAllPermissionsGranted(
                 mContext, Manifest.permission.READ_CONTACTS)) {
             Log.i(TAG, "No permission to read contacts. Not registering the observer.");

@@ -23,8 +23,9 @@ import android.os.Build.VERSION_CODES;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
-import com.android.inputmethod.compat.BuildCompatUtils;
-import com.android.inputmethod.latin.R;
+
+import com.tohsoft.keyboard.R;
+import com.tohsoft.keyboard.compat.BuildCompatUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;

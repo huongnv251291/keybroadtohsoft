@@ -33,20 +33,21 @@ import android.text.method.LinkMovementMethod;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.android.inputmethod.annotations.UsedForTesting;
-import com.android.inputmethod.latin.R;
-import com.android.inputmethod.latin.accounts.AccountStateChangedListener;
-import com.android.inputmethod.latin.accounts.LoginAccountUtils;
-import com.android.inputmethod.latin.define.ProductionFlags;
-import com.android.inputmethod.latin.permissions.PermissionsUtil;
-import com.android.inputmethod.latin.utils.ManagedProfileUtils;
+import androidx.annotation.Nullable;
+
+import com.tohsoft.common.annotations.UsedForTesting;
+import com.tohsoft.keyboard.R;
+import com.tohsoft.keyboard.latin.accounts.AccountStateChangedListener;
+import com.tohsoft.keyboard.latin.accounts.LoginAccountUtils;
+import com.tohsoft.keyboard.latin.define.ProductionFlags;
+import com.tohsoft.keyboard.latin.permissions.PermissionsUtil;
+import com.tohsoft.keyboard.latin.utils.ManagedProfileUtils;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import javax.annotation.Nullable;
 
-import static com.android.inputmethod.latin.settings.LocalSettingsConstants.PREF_ACCOUNT_NAME;
-import static com.android.inputmethod.latin.settings.LocalSettingsConstants.PREF_ENABLE_CLOUD_SYNC;
+import static com.tohsoft.keyboard.latin.settings.LocalSettingsConstants.PREF_ACCOUNT_NAME;
+import static com.tohsoft.keyboard.latin.settings.LocalSettingsConstants.PREF_ENABLE_CLOUD_SYNC;
 
 /**
  * "Accounts & Privacy" settings sub screen.

@@ -22,9 +22,9 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 
-import com.android.inputmethod.keyboard.KeyboardTheme;
-import com.android.inputmethod.latin.R;
-import com.android.inputmethod.latin.settings.RadioButtonPreference.OnRadioButtonClickedListener;
+import com.tohsoft.keyboard.keyboard.KeyboardTheme;
+import com.tohsoft.keyboard.R;
+import com.tohsoft.keyboard.latin.settings.RadioButtonPreference.OnRadioButtonClickedListener;
 
 /**
  * "Keyboard theme" settings sub screen.

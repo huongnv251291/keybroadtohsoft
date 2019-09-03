@@ -32,12 +32,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 
-import com.android.inputmethod.compat.InputMethodSubtypeCompatUtils;
-import com.android.inputmethod.compat.ViewCompatUtils;
-import com.android.inputmethod.latin.R;
-import com.android.inputmethod.latin.RichInputMethodManager;
-import com.android.inputmethod.latin.utils.AdditionalSubtypeUtils;
-import com.android.inputmethod.latin.utils.SubtypeLocaleUtils;
+import com.tohsoft.keyboard.compat.InputMethodSubtypeCompatUtils;
+import com.tohsoft.keyboard.compat.ViewCompatUtils;
+import com.tohsoft.keyboard.R;
+import com.tohsoft.keyboard.latin.RichInputMethodManager;
+import com.tohsoft.keyboard.latin.utils.AdditionalSubtypeUtils;
+import com.tohsoft.keyboard.latin.utils.SubtypeLocaleUtils;
 
 import java.util.TreeSet;
 

@@ -144,6 +144,7 @@ public final class KeyboardSwitcher implements KeyboardState.SwitchActions {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void setKeyboard(
             @NonNull final int keyboardId,
             @NonNull final KeyboardSwitchState toggleState) {
@@ -208,6 +209,7 @@ public final class KeyboardSwitcher implements KeyboardState.SwitchActions {
     }
 
     // Implements {@link KeyboardState.SwitchActions}.
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void setAlphabetKeyboard() {
         if (DEBUG_ACTION) {
@@ -217,6 +219,7 @@ public final class KeyboardSwitcher implements KeyboardState.SwitchActions {
     }
 
     // Implements {@link KeyboardState.SwitchActions}.
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void setAlphabetManualShiftedKeyboard() {
         if (DEBUG_ACTION) {
@@ -226,6 +229,7 @@ public final class KeyboardSwitcher implements KeyboardState.SwitchActions {
     }
 
     // Implements {@link KeyboardState.SwitchActions}.
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void setAlphabetAutomaticShiftedKeyboard() {
         if (DEBUG_ACTION) {
@@ -235,6 +239,7 @@ public final class KeyboardSwitcher implements KeyboardState.SwitchActions {
     }
 
     // Implements {@link KeyboardState.SwitchActions}.
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void setAlphabetShiftLockedKeyboard() {
         if (DEBUG_ACTION) {
@@ -244,6 +249,7 @@ public final class KeyboardSwitcher implements KeyboardState.SwitchActions {
     }
 
     // Implements {@link KeyboardState.SwitchActions}.
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void setAlphabetShiftLockShiftedKeyboard() {
         if (DEBUG_ACTION) {
@@ -253,6 +259,7 @@ public final class KeyboardSwitcher implements KeyboardState.SwitchActions {
     }
 
     // Implements {@link KeyboardState.SwitchActions}.
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void setSymbolsKeyboard() {
         if (DEBUG_ACTION) {
@@ -262,6 +269,7 @@ public final class KeyboardSwitcher implements KeyboardState.SwitchActions {
     }
 
     // Implements {@link KeyboardState.SwitchActions}.
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void setSymbolsShiftedKeyboard() {
         if (DEBUG_ACTION) {
@@ -337,6 +345,7 @@ public final class KeyboardSwitcher implements KeyboardState.SwitchActions {
         return KeyboardSwitchState.OTHER;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     public void onToggleKeyboard(@NonNull final KeyboardSwitchState toggleState) {
         KeyboardSwitchState currentState = getKeyboardSwitchState();
         Log.w(TAG, "onToggleKeyboard() : Current = " + currentState + " : Toggle = " + toggleState);

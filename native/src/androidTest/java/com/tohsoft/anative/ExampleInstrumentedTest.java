@@ -1,4 +1,4 @@
-package com.tohsoft.mylibrary;
+package com.tohsoft.anative;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.tohsoft.mylibrary.test", appContext.getPackageName());
+        assertEquals("com.tohsoft.anative.test", appContext.getPackageName());
     }
 }

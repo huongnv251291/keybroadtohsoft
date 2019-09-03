@@ -16,18 +16,19 @@
 
 package com.tohsoft.keyboard.latin.makedict;
 
-import com.android.inputmethod.annotations.UsedForTesting;
-import com.android.inputmethod.latin.BinaryDictionary;
-import com.android.inputmethod.latin.Dictionary;
-import com.android.inputmethod.latin.NgramContext;
-import com.android.inputmethod.latin.NgramContext.WordInfo;
-import com.android.inputmethod.latin.common.StringUtils;
-import com.android.inputmethod.latin.utils.CombinedFormatUtils;
+import androidx.annotation.Nullable;
+
+import com.tohsoft.common.annotations.UsedForTesting;
+import com.tohsoft.keyboard.latin.BinaryDictionary;
+import com.tohsoft.keyboard.latin.Dictionary;
+import com.tohsoft.keyboard.latin.NgramContext;
+import com.tohsoft.keyboard.latin.NgramContext.WordInfo;
+import com.tohsoft.common.latin.common.StringUtils;
+import com.tohsoft.keyboard.latin.utils.CombinedFormatUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import javax.annotation.Nullable;
 
 /**
  * Utility class for a word with a probability.

@@ -24,7 +24,8 @@ import android.provider.ContactsContract.Contacts;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.android.inputmethod.latin.common.Constants;
+
+import com.tohsoft.common.latin.common.Constants;
 
 import java.util.ArrayList;
 import java.util.Collections;

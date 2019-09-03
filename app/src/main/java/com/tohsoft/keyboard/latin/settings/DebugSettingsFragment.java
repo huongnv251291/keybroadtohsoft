@@ -16,6 +16,7 @@
 
 package com.tohsoft.keyboard.latin.settings;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -27,11 +28,11 @@ import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceGroup;
 import android.preference.TwoStatePreference;
 
-import com.android.inputmethod.latin.DictionaryDumpBroadcastReceiver;
-import com.android.inputmethod.latin.DictionaryFacilitatorImpl;
-import com.android.inputmethod.latin.R;
-import com.android.inputmethod.latin.utils.ApplicationUtils;
-import com.android.inputmethod.latin.utils.ResourceUtils;
+import com.tohsoft.keyboard.latin.DictionaryDumpBroadcastReceiver;
+import com.tohsoft.keyboard.latin.DictionaryFacilitatorImpl;
+import com.tohsoft.keyboard.R;
+import com.tohsoft.keyboard.latin.utils.ApplicationUtils;
+import com.tohsoft.keyboard.latin.utils.ResourceUtils;
 
 import java.util.Locale;
 
@@ -230,6 +231,7 @@ public final class DebugSettingsFragment extends SubScreenFragment
                 return defaultValue;
             }
 
+            @SuppressLint("StringFormatMatches")
             @Override
             public String getValueText(final int value) {
                 return res.getString(R.string.abbreviation_unit_milliseconds, value);

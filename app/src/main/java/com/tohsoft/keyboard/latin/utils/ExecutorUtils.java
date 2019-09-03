@@ -18,7 +18,8 @@ package com.tohsoft.keyboard.latin.utils;
 
 import android.util.Log;
 
-import com.android.inputmethod.annotations.UsedForTesting;
+
+import com.tohsoft.common.annotations.UsedForTesting;
 
 import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.concurrent.Executors;

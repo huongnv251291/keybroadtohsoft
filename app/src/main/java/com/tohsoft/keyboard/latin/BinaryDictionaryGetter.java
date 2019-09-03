@@ -21,12 +21,13 @@ import android.content.SharedPreferences;
 import android.content.res.AssetFileDescriptor;
 import android.util.Log;
 
-import com.android.inputmethod.latin.common.LocaleUtils;
-import com.android.inputmethod.latin.define.DecoderSpecificConstants;
-import com.android.inputmethod.latin.makedict.DictionaryHeader;
-import com.android.inputmethod.latin.makedict.UnsupportedFormatException;
-import com.android.inputmethod.latin.utils.BinaryDictionaryUtils;
-import com.android.inputmethod.latin.utils.DictionaryInfoUtils;
+
+import com.tohsoft.common.latin.common.LocaleUtils;
+import com.tohsoft.keyboard.latin.define.DecoderSpecificConstants;
+import com.tohsoft.keyboard.latin.makedict.DictionaryHeader;
+import com.tohsoft.keyboard.latin.makedict.UnsupportedFormatException;
+import com.tohsoft.keyboard.latin.utils.BinaryDictionaryUtils;
+import com.tohsoft.keyboard.latin.utils.DictionaryInfoUtils;
 
 import java.io.File;
 import java.io.IOException;

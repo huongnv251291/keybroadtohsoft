@@ -22,18 +22,20 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.LruCache;
 
-import com.android.inputmethod.annotations.UsedForTesting;
-import com.android.inputmethod.keyboard.Keyboard;
-import com.android.inputmethod.latin.NgramContext.WordInfo;
-import com.android.inputmethod.latin.SuggestedWords.SuggestedWordInfo;
-import com.android.inputmethod.latin.common.ComposedData;
-import com.android.inputmethod.latin.common.Constants;
-import com.android.inputmethod.latin.common.StringUtils;
-import com.android.inputmethod.latin.permissions.PermissionsUtil;
-import com.android.inputmethod.latin.personalization.UserHistoryDictionary;
-import com.android.inputmethod.latin.settings.SettingsValuesForSuggestion;
-import com.android.inputmethod.latin.utils.ExecutorUtils;
-import com.android.inputmethod.latin.utils.SuggestionResults;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.tohsoft.common.annotations.UsedForTesting;
+import com.tohsoft.common.latin.common.ComposedData;
+import com.tohsoft.common.latin.common.Constants;
+import com.tohsoft.common.latin.common.StringUtils;
+import com.tohsoft.keyboard.keyboard.Keyboard;
+import com.tohsoft.keyboard.latin.permissions.PermissionsUtil;
+import com.tohsoft.keyboard.latin.personalization.UserHistoryDictionary;
+import com.tohsoft.keyboard.latin.settings.SettingsValuesForSuggestion;
+import com.tohsoft.keyboard.latin.utils.ExecutorUtils;
+import com.tohsoft.keyboard.latin.utils.SuggestionResults;
 
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
@@ -49,8 +51,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 /**
  * Facilitates interaction with different kinds of dictionaries. Provides APIs
@@ -497,7 +497,7 @@ public class DictionaryFacilitatorImpl implements DictionaryFacilitator {
     }
 
     public void addToUserHistory(final String suggestion, final boolean wasAutoCapitalized,
-                                 @Nonnull final NgramContext ngramContext, final long timeStampInSeconds,
+                                 @NonNull final NgramContext ngramContext, final long timeStampInSeconds,
                                  final boolean blockPotentiallyOffensive) {
         // Update the spelling cache before learning. Words that are not yet added to user history
         // and appear in no other language model are not considered valid.
@@ -512,13 +512,13 @@ public class DictionaryFacilitatorImpl implements DictionaryFacilitator {
                     wasCurrentWordAutoCapitalized, (int) timeStampInSeconds,
                     blockPotentiallyOffensive);
             ngramContextForCurrentWord =
-                    ngramContextForCurrentWord.getNextNgramContext(new WordInfo(currentWord));
+                    ngramContextForCurrentWord.getNextNgramContext(new NgramContext.WordInfo(currentWord));
         }
     }
 
     private void putWordIntoValidSpellingWordCache(
-            @Nonnull final String caller,
-            @Nonnull final String originalWord) {
+            @NonNull final String caller,
+            @NonNull final String originalWord) {
         if (mValidSpellingWordWriteCache == null) {
             return;
         }
@@ -599,7 +599,7 @@ public class DictionaryFacilitatorImpl implements DictionaryFacilitator {
 
     @Override
     public void unlearnFromUserHistory(final String word,
-            @Nonnull final NgramContext ngramContext, final long timeStampInSeconds,
+            @NonNull final NgramContext ngramContext, final long timeStampInSeconds,
             final int eventType) {
         // TODO: Decide whether or not to remove the word on EVENT_BACKSPACE.
         if (eventType != Constants.EVENT_BACKSPACE) {
@@ -613,10 +613,10 @@ public class DictionaryFacilitatorImpl implements DictionaryFacilitator {
 
     // TODO: Revise the way to fusion suggestion results.
     @Override
-    @Nonnull public SuggestionResults getSuggestionResults(ComposedData composedData,
-            NgramContext ngramContext, @Nonnull final Keyboard keyboard,
-            SettingsValuesForSuggestion settingsValuesForSuggestion, int sessionId,
-            int inputStyle) {
+    @NonNull public SuggestionResults getSuggestionResults(ComposedData composedData,
+                                                           NgramContext ngramContext, @NonNull final Keyboard keyboard,
+                                                           SettingsValuesForSuggestion settingsValuesForSuggestion, int sessionId,
+                                                           int inputStyle) {
         long proximityInfoHandle = keyboard.getProximityInfo().getNativeProximityInfo();
         final SuggestionResults suggestionResults = new SuggestionResults(
                 SuggestedWords.MAX_SUGGESTIONS, ngramContext.isBeginningOfSentenceContext(),
@@ -629,7 +629,7 @@ public class DictionaryFacilitatorImpl implements DictionaryFacilitator {
             final float weightForLocale = composedData.mIsBatchMode
                     ? mDictionaryGroup.mWeightForGesturingInLocale
                     : mDictionaryGroup.mWeightForTypingInLocale;
-            final ArrayList<SuggestedWordInfo> dictionarySuggestions =
+            final ArrayList<SuggestedWords.SuggestedWordInfo> dictionarySuggestions =
                     dictionary.getSuggestions(composedData, ngramContext,
                             proximityInfoHandle, settingsValuesForSuggestion, sessionId,
                             weightForLocale, weightOfLangModelVsSpatialModel);
@@ -719,7 +719,7 @@ public class DictionaryFacilitatorImpl implements DictionaryFacilitator {
     }
 
     @Override
-    @Nonnull public List<DictionaryStats> getDictionaryStats(final Context context) {
+    @NonNull public List<DictionaryStats> getDictionaryStats(final Context context) {
         final ArrayList<DictionaryStats> statsOfEnabledSubDicts = new ArrayList<>();
         for (final String dictType : DYNAMIC_DICTIONARY_TYPES) {
             final ExpandableBinaryDictionary dictionary = mDictionaryGroup.getSubDict(dictType);

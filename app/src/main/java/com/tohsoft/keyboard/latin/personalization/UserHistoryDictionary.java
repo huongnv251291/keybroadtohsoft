@@ -18,21 +18,22 @@ package com.tohsoft.keyboard.latin.personalization;
 
 import android.content.Context;
 
-import com.android.inputmethod.annotations.ExternallyReferenced;
-import com.android.inputmethod.annotations.UsedForTesting;
-import com.android.inputmethod.latin.BinaryDictionary;
-import com.android.inputmethod.latin.Dictionary;
-import com.android.inputmethod.latin.ExpandableBinaryDictionary;
-import com.android.inputmethod.latin.NgramContext;
-import com.android.inputmethod.latin.define.ProductionFlags;
-import com.android.inputmethod.latin.makedict.DictionaryHeader;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.tohsoft.common.annotations.ExternallyReferenced;
+import com.tohsoft.common.annotations.UsedForTesting;
+import com.tohsoft.keyboard.latin.BinaryDictionary;
+import com.tohsoft.keyboard.latin.Dictionary;
+import com.tohsoft.keyboard.latin.ExpandableBinaryDictionary;
+import com.tohsoft.keyboard.latin.NgramContext;
+import com.tohsoft.keyboard.latin.define.ProductionFlags;
+import com.tohsoft.keyboard.latin.makedict.DictionaryHeader;
 
 import java.io.File;
 import java.util.Locale;
 import java.util.Map;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 /**
  * Locally gathers statistics about the words user types and various other signals like
@@ -96,7 +97,7 @@ public class UserHistoryDictionary extends ExpandableBinaryDictionary {
      * @param timestamp the timestamp when the word has been inputted
      */
     public static void addToDictionary(final ExpandableBinaryDictionary userHistoryDictionary,
-                                       @Nonnull final NgramContext ngramContext, final String word, final boolean isValid,
+                                       @NonNull final NgramContext ngramContext, final String word, final boolean isValid,
                                        final int timestamp) {
         if (word.length() > BinaryDictionary.DICTIONARY_MAX_WORD_LENGTH) {
             return;

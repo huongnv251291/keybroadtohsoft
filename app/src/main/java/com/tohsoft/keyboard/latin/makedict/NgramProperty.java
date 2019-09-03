@@ -16,7 +16,8 @@
 
 package com.tohsoft.keyboard.latin.makedict;
 
-import com.android.inputmethod.latin.NgramContext;
+
+import com.tohsoft.keyboard.latin.NgramContext;
 
 public class NgramProperty {
     public final WeightedString mTargetWord;

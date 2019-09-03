@@ -29,12 +29,12 @@ import android.preference.Preference;
 import android.preference.SwitchPreference;
 import android.text.TextUtils;
 
-import com.android.inputmethod.dictionarypack.DictionarySettingsActivity;
-import com.android.inputmethod.latin.R;
-import com.android.inputmethod.latin.permissions.PermissionsManager;
-import com.android.inputmethod.latin.permissions.PermissionsUtil;
-import com.android.inputmethod.latin.userdictionary.UserDictionaryList;
-import com.android.inputmethod.latin.userdictionary.UserDictionarySettings;
+import com.tohsoft.keyboard.dictionarypack.DictionarySettingsActivity;
+import com.tohsoft.keyboard.R;
+import com.tohsoft.keyboard.latin.permissions.PermissionsManager;
+import com.tohsoft.keyboard.latin.permissions.PermissionsUtil;
+import com.tohsoft.keyboard.latin.userdictionary.UserDictionaryList;
+import com.tohsoft.keyboard.latin.userdictionary.UserDictionarySettings;
 
 import java.util.TreeSet;
 

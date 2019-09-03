@@ -26,9 +26,9 @@ import android.view.textservice.SentenceSuggestionsInfo;
 import android.view.textservice.SuggestionsInfo;
 import android.view.textservice.TextInfo;
 
-import com.android.inputmethod.compat.TextInfoCompatUtils;
-import com.android.inputmethod.latin.NgramContext;
-import com.android.inputmethod.latin.utils.SpannableStringUtils;
+import com.tohsoft.keyboard.compat.TextInfoCompatUtils;
+import com.tohsoft.keyboard.latin.NgramContext;
+import com.tohsoft.keyboard.latin.utils.SpannableStringUtils;
 
 import java.util.ArrayList;
 import java.util.Locale;

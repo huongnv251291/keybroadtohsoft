@@ -20,12 +20,13 @@ import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
-import android.support.v4.app.ActivityCompat;
 import android.view.MenuItem;
 
-import com.android.inputmethod.latin.permissions.PermissionsManager;
-import com.android.inputmethod.latin.utils.FragmentUtils;
-import com.android.inputmethod.latin.utils.StatsUtils;
+import androidx.core.app.ActivityCompat;
+
+import com.tohsoft.keyboard.latin.permissions.PermissionsManager;
+import com.tohsoft.keyboard.latin.utils.FragmentUtils;
+import com.tohsoft.keyboard.latin.utils.StatsUtils;
 
 public final class SettingsActivity extends PreferenceActivity
         implements ActivityCompat.OnRequestPermissionsResultCallback {

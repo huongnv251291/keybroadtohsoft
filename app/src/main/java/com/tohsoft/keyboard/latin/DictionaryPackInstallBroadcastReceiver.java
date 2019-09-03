@@ -25,8 +25,9 @@ import android.content.pm.ProviderInfo;
 import android.net.Uri;
 import android.util.Log;
 
-import com.android.inputmethod.dictionarypack.DictionaryPackConstants;
-import com.android.inputmethod.latin.utils.TargetPackageInfoGetterTask;
+import com.tohsoft.keyboard.R;
+import com.tohsoft.keyboard.dictionarypack.DictionaryPackConstants;
+import com.tohsoft.keyboard.latin.utils.TargetPackageInfoGetterTask;
 
 /**
  * Receives broadcasts pertaining to dictionary management and takes the appropriate action.

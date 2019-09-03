@@ -19,15 +19,17 @@ package com.tohsoft.keyboard.keyboard;
 import android.content.Context;
 import android.graphics.Paint;
 
-import com.android.inputmethod.annotations.UsedForTesting;
-import com.android.inputmethod.keyboard.internal.KeyboardBuilder;
-import com.android.inputmethod.keyboard.internal.KeyboardParams;
-import com.android.inputmethod.keyboard.internal.MoreKeySpec;
-import com.android.inputmethod.latin.R;
-import com.android.inputmethod.latin.common.StringUtils;
-import com.android.inputmethod.latin.utils.TypefaceUtils;
+import androidx.annotation.NonNull;
 
-import javax.annotation.Nonnull;
+import com.tohsoft.common.annotations.UsedForTesting;
+import com.tohsoft.keyboard.keyboard.internal.KeyboardBuilder;
+import com.tohsoft.keyboard.keyboard.internal.KeyboardParams;
+import com.tohsoft.keyboard.keyboard.internal.MoreKeySpec;
+import com.tohsoft.keyboard.R;
+import com.tohsoft.common.latin.common.StringUtils;
+import com.tohsoft.keyboard.latin.utils.TypefaceUtils;
+import com.tohsoft.keyboard.keyboard.internal.MoreKeySpec;
+
 
 public final class MoreKeysKeyboard extends Keyboard {
     private final int mDefaultKeyCoordX;
@@ -330,7 +332,7 @@ public final class MoreKeysKeyboard extends Keyboard {
         }
 
         @Override
-        @Nonnull
+        @NonNull
         public MoreKeysKeyboard build() {
             final MoreKeysKeyboardParams params = mParams;
             final int moreKeyFlags = mParentKey.getMoreKeyLabelFlags();

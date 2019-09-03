@@ -80,7 +80,7 @@ public final class ReadOnlyBinaryDictionary extends Dictionary {
     }
 
     @Override
-    public boolean shouldAutoCommit(final SuggestedWordInfo candidate) {
+    public boolean shouldAutoCommit(final SuggestedWords.SuggestedWordInfo candidate) {
         if (mLock.readLock().tryLock()) {
             try {
                 return mBinaryDictionary.shouldAutoCommit(candidate);

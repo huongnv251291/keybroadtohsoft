@@ -23,10 +23,10 @@ import android.view.textservice.SentenceSuggestionsInfo;
 import android.view.textservice.SuggestionsInfo;
 import android.view.textservice.TextInfo;
 
-import com.android.inputmethod.compat.TextInfoCompatUtils;
-import com.android.inputmethod.latin.common.Constants;
-import com.android.inputmethod.latin.settings.SpacingAndPunctuations;
-import com.android.inputmethod.latin.utils.RunInLocale;
+import com.tohsoft.keyboard.compat.TextInfoCompatUtils;
+import com.tohsoft.common.latin.common.Constants;
+import com.tohsoft.keyboard.latin.settings.SpacingAndPunctuations;
+import com.tohsoft.keyboard.latin.utils.RunInLocale;
 
 import java.util.ArrayList;
 import java.util.Locale;

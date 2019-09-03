@@ -16,14 +16,16 @@
 
 package com.tohsoft.keyboard.latin;
 
-import com.android.inputmethod.keyboard.internal.KeySpecParser;
-import com.android.inputmethod.latin.common.Constants;
-import com.android.inputmethod.latin.common.StringUtils;
+
+import androidx.annotation.Nullable;
+
+import com.tohsoft.common.latin.common.Constants;
+import com.tohsoft.common.latin.common.StringUtils;
+import com.tohsoft.keyboard.keyboard.internal.KeySpecParser;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import javax.annotation.Nullable;
 
 /**
  * The extended {@link SuggestedWords} class to represent punctuation suggestions.

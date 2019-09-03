@@ -22,11 +22,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceGroup;
-import android.support.v4.view.ViewCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -38,12 +38,15 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodSubtype;
 import android.widget.Toast;
 
-import com.android.inputmethod.latin.R;
-import com.android.inputmethod.latin.RichInputMethodManager;
-import com.android.inputmethod.latin.utils.AdditionalSubtypeUtils;
-import com.android.inputmethod.latin.utils.DialogUtils;
-import com.android.inputmethod.latin.utils.IntentUtils;
-import com.android.inputmethod.latin.utils.SubtypeLocaleUtils;
+import androidx.annotation.RequiresApi;
+import androidx.core.view.ViewCompat;
+
+import com.tohsoft.keyboard.R;
+import com.tohsoft.keyboard.latin.RichInputMethodManager;
+import com.tohsoft.keyboard.latin.utils.AdditionalSubtypeUtils;
+import com.tohsoft.keyboard.latin.utils.DialogUtils;
+import com.tohsoft.keyboard.latin.utils.IntentUtils;
+import com.tohsoft.keyboard.latin.utils.SubtypeLocaleUtils;
 
 import java.util.ArrayList;
 
@@ -91,6 +94,7 @@ public final class CustomInputStyleSettingsFragment extends PreferenceFragment
         pref.setSummary(TextUtils.join(", ", subtypeNames));
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -158,6 +162,7 @@ public final class CustomInputStyleSettingsFragment extends PreferenceFragment
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onRemoveCustomInputStyle(final CustomInputStylePreference stylePref) {
         mIsAddingNewSubtype = false;
@@ -166,6 +171,7 @@ public final class CustomInputStyleSettingsFragment extends PreferenceFragment
         mRichImm.setAdditionalInputMethodSubtypes(getSubtypes());
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onSaveCustomInputStyle(final CustomInputStylePreference stylePref) {
         final InputMethodSubtype subtype = stylePref.getSubtype();

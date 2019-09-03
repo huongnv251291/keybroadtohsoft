@@ -19,6 +19,7 @@ package com.tohsoft.keyboard.latin.spellcheck;
 import android.content.ContentResolver;
 import android.database.ContentObserver;
 import android.os.Binder;
+import android.os.Build;
 import android.provider.UserDictionary.Words;
 import android.service.textservice.SpellCheckerService.Session;
 import android.text.TextUtils;
@@ -27,19 +28,21 @@ import android.util.LruCache;
 import android.view.textservice.SuggestionsInfo;
 import android.view.textservice.TextInfo;
 
-import com.android.inputmethod.compat.SuggestionsInfoCompatUtils;
-import com.android.inputmethod.keyboard.Keyboard;
-import com.android.inputmethod.latin.NgramContext;
-import com.android.inputmethod.latin.SuggestedWords.SuggestedWordInfo;
-import com.android.inputmethod.latin.WordComposer;
-import com.android.inputmethod.latin.common.Constants;
-import com.android.inputmethod.latin.common.LocaleUtils;
-import com.android.inputmethod.latin.common.StringUtils;
-import com.android.inputmethod.latin.define.DebugFlags;
-import com.android.inputmethod.latin.utils.BinaryDictionaryUtils;
-import com.android.inputmethod.latin.utils.ScriptUtils;
-import com.android.inputmethod.latin.utils.StatsUtils;
-import com.android.inputmethod.latin.utils.SuggestionResults;
+import androidx.annotation.RequiresApi;
+
+import com.tohsoft.keyboard.compat.SuggestionsInfoCompatUtils;
+import com.tohsoft.keyboard.keyboard.Keyboard;
+import com.tohsoft.keyboard.latin.NgramContext;
+import com.tohsoft.keyboard.latin.SuggestedWords.SuggestedWordInfo;
+import com.tohsoft.keyboard.latin.WordComposer;
+import com.tohsoft.common.latin.common.Constants;
+import com.tohsoft.common.latin.common.LocaleUtils;
+import com.tohsoft.common.latin.common.StringUtils;
+import com.tohsoft.keyboard.latin.define.DebugFlags;
+import com.tohsoft.keyboard.latin.utils.BinaryDictionaryUtils;
+import com.tohsoft.keyboard.latin.utils.ScriptUtils;
+import com.tohsoft.keyboard.latin.utils.StatsUtils;
+import com.tohsoft.keyboard.latin.utils.SuggestionResults;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -215,11 +218,13 @@ public abstract class AndroidWordLevelSpellCheckerSession extends Session {
      * corrections for the text passed as an argument. It may split or group words, and
      * even perform grammatical analysis.
      */
+    @RequiresApi(api = Build.VERSION_CODES.M)
     private SuggestionsInfo onGetSuggestionsInternal(final TextInfo textInfo,
                                                      final int suggestionsLimit) {
         return onGetSuggestionsInternal(textInfo, null, suggestionsLimit);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     protected SuggestionsInfo onGetSuggestionsInternal(
             final TextInfo textInfo, final NgramContext ngramContext, final int suggestionsLimit) {
         try {
@@ -378,6 +383,7 @@ public abstract class AndroidWordLevelSpellCheckerSession extends Session {
      * of the application by default unless we clearCallingIdentity.
      * That's what the following method does.
      */
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public SuggestionsInfo onGetSuggestions(final TextInfo textInfo, final int suggestionsLimit) {
         long ident = Binder.clearCallingIdentity();

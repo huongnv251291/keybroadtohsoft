@@ -23,10 +23,12 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import com.android.inputmethod.accessibility.AccessibilityUtils;
-import com.android.inputmethod.keyboard.MainKeyboardView;
-import com.android.inputmethod.latin.suggestions.MoreSuggestionsView;
-import com.android.inputmethod.latin.suggestions.SuggestionStripView;
+import com.tohsoft.keyboard.R;
+import com.tohsoft.keyboard.accessibility.AccessibilityUtils;
+import com.tohsoft.keyboard.keyboard.MainKeyboardView;
+import com.tohsoft.keyboard.latin.suggestions.MoreSuggestionsView;
+import com.tohsoft.keyboard.latin.suggestions.SuggestionStripView;
+
 
 public final class InputView extends FrameLayout {
     private final Rect mInputViewRect = new Rect();
@@ -41,9 +43,10 @@ public final class InputView extends FrameLayout {
 
     @Override
     protected void onFinishInflate() {
+        super.onFinishInflate();
         final SuggestionStripView suggestionStripView =
-                (SuggestionStripView)findViewById(R.id.suggestion_strip_view);
-        mMainKeyboardView = (MainKeyboardView)findViewById(R.id.keyboard_view);
+                findViewById(R.id.suggestion_strip_view);
+        mMainKeyboardView = findViewById(R.id.keyboard_view);
         mKeyboardTopPaddingForwarder = new KeyboardTopPaddingForwarder(
                 mMainKeyboardView, suggestionStripView);
         mMoreSuggestionsViewCanceler = new MoreSuggestionsViewCanceler(

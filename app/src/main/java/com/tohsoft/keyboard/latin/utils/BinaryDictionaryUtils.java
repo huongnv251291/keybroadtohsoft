@@ -16,11 +16,12 @@
 
 package com.tohsoft.keyboard.latin.utils;
 
-import com.android.inputmethod.annotations.UsedForTesting;
-import com.android.inputmethod.latin.BinaryDictionary;
-import com.android.inputmethod.latin.common.StringUtils;
-import com.android.inputmethod.latin.makedict.DictionaryHeader;
-import com.android.inputmethod.latin.makedict.UnsupportedFormatException;
+
+import com.tohsoft.common.annotations.UsedForTesting;
+import com.tohsoft.common.latin.common.StringUtils;
+import com.tohsoft.keyboard.latin.BinaryDictionary;
+import com.tohsoft.keyboard.latin.makedict.DictionaryHeader;
+import com.tohsoft.keyboard.latin.makedict.UnsupportedFormatException;
 
 import java.io.File;
 import java.io.IOException;

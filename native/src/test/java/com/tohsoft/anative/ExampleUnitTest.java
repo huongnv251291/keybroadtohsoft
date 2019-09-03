@@ -1,4 +1,4 @@
-package com.tohsoft.mylibrary;
+package com.tohsoft.anative;
 
 import org.junit.Test;
 

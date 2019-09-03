@@ -21,6 +21,23 @@ import android.util.Log;
 import android.util.SparseArray;
 
 
+import androidx.annotation.NonNull;
+
+import com.tohsoft.common.annotations.UsedForTesting;
+import com.tohsoft.common.latin.common.ComposedData;
+import com.tohsoft.common.latin.common.Constants;
+import com.tohsoft.common.latin.common.FileUtils;
+import com.tohsoft.common.latin.common.InputPointers;
+import com.tohsoft.common.latin.common.StringUtils;
+import com.tohsoft.keyboard.latin.makedict.DictionaryHeader;
+import com.tohsoft.keyboard.latin.makedict.FormatSpec;
+import com.tohsoft.keyboard.latin.makedict.UnsupportedFormatException;
+import com.tohsoft.keyboard.latin.makedict.WordProperty;
+import com.tohsoft.keyboard.latin.settings.SettingsValuesForSuggestion;
+import com.tohsoft.keyboard.latin.utils.BinaryDictionaryUtils;
+import com.tohsoft.keyboard.latin.utils.JniUtils;
+import com.tohsoft.keyboard.latin.utils.WordInputEventForPersonalization;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -194,7 +211,7 @@ public final class BinaryDictionary extends Dictionary {
             int[][] prevWordCodePointArrays, boolean[] isBeginningOfSentenceArray,
             int[] word, boolean isValidWord, int count, int timestamp);
     private static native int updateEntriesForInputEventsNative(long dict,
-            WordInputEventForPersonalization[] inputEvents, int startIndex);
+                                                                WordInputEventForPersonalization[] inputEvents, int startIndex);
     private static native String getPropertyNative(long dict, String query);
     private static native boolean isCorruptedNative(long dict);
     private static native boolean migrateNative(long dict, String dictFilePath,
@@ -243,16 +260,16 @@ public final class BinaryDictionary extends Dictionary {
         }
         final boolean hasHistoricalInfo = DictionaryHeader.ATTRIBUTE_VALUE_TRUE.equals(
                 attributes.get(DictionaryHeader.HAS_HISTORICAL_INFO_KEY));
-        return new DictionaryHeader(outHeaderSize[0], new DictionaryOptions(attributes),
+        return new DictionaryHeader(outHeaderSize[0], new FormatSpec.DictionaryOptions(attributes),
                 new FormatSpec.FormatOptions(outFormatVersion[0], hasHistoricalInfo));
     }
 
     @Override
-    public ArrayList<SuggestedWordInfo> getSuggestions(final ComposedData composedData,
-                                                       final NgramContext ngramContext, final long proximityInfoHandle,
-                                                       final SettingsValuesForSuggestion settingsValuesForSuggestion,
-                                                       final int sessionId, final float weightForLocale,
-                                                       final float[] inOutWeightOfLangModelVsSpatialModel) {
+    public ArrayList<SuggestedWords.SuggestedWordInfo> getSuggestions(final ComposedData composedData,
+                                                                      final NgramContext ngramContext, final long proximityInfoHandle,
+                                                                      final SettingsValuesForSuggestion settingsValuesForSuggestion,
+                                                                      final int sessionId, final float weightForLocale,
+                                                                      final float[] inOutWeightOfLangModelVsSpatialModel) {
         if (!isValidDictionary()) {
             return null;
         }
@@ -301,7 +318,7 @@ public final class BinaryDictionary extends Dictionary {
                     session.mInputOutputWeightOfLangModelVsSpatialModel[0];
         }
         final int count = session.mOutputSuggestionCount[0];
-        final ArrayList<SuggestedWordInfo> suggestions = new ArrayList<>();
+        final ArrayList<SuggestedWords.SuggestedWordInfo> suggestions = new ArrayList<>();
         for (int j = 0; j < count; ++j) {
             final int start = j * DICTIONARY_MAX_WORD_LENGTH;
             int len = 0;
@@ -310,7 +327,7 @@ public final class BinaryDictionary extends Dictionary {
                 ++len;
             }
             if (len > 0) {
-                suggestions.add(new SuggestedWordInfo(
+                suggestions.add(new SuggestedWords.SuggestedWordInfo(
                         new String(session.mOutputCodePoints, start, len),
                         "" /* prevWordsContext */,
                         (int)(session.mOutputScores[j] * weightForLocale),
@@ -473,7 +490,7 @@ public final class BinaryDictionary extends Dictionary {
     }
 
     // Update entries for the word occurrence with the ngramContext.
-    public boolean updateEntriesForWordWithNgramContext(@Nonnull final NgramContext ngramContext,
+    public boolean updateEntriesForWordWithNgramContext(@NonNull final NgramContext ngramContext,
                                                         final String word, final boolean isValidWord, final int count, final int timestamp) {
         if (TextUtils.isEmpty(word)) {
             return false;
@@ -614,7 +631,7 @@ public final class BinaryDictionary extends Dictionary {
     }
 
     @Override
-    public boolean shouldAutoCommit(final SuggestedWordInfo candidate) {
+    public boolean shouldAutoCommit(final SuggestedWords.SuggestedWordInfo candidate) {
         return candidate.mAutoCommitFirstWordConfidence > CONFIDENCE_TO_AUTO_COMMIT;
     }
 

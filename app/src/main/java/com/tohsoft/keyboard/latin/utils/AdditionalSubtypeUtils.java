@@ -21,20 +21,20 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.inputmethod.InputMethodSubtype;
 
-import com.android.inputmethod.annotations.UsedForTesting;
-import com.android.inputmethod.compat.InputMethodSubtypeCompatUtils;
-import com.android.inputmethod.latin.R;
-import com.android.inputmethod.latin.common.StringUtils;
+import com.tohsoft.common.annotations.UsedForTesting;
+import com.tohsoft.keyboard.compat.InputMethodSubtypeCompatUtils;
+import com.tohsoft.keyboard.R;
+import com.tohsoft.common.latin.common.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static com.android.inputmethod.latin.common.Constants.Subtype.ExtraValue.ASCII_CAPABLE;
-import static com.android.inputmethod.latin.common.Constants.Subtype.ExtraValue.EMOJI_CAPABLE;
-import static com.android.inputmethod.latin.common.Constants.Subtype.ExtraValue.IS_ADDITIONAL_SUBTYPE;
-import static com.android.inputmethod.latin.common.Constants.Subtype.ExtraValue.KEYBOARD_LAYOUT_SET;
-import static com.android.inputmethod.latin.common.Constants.Subtype.ExtraValue.UNTRANSLATABLE_STRING_IN_SUBTYPE_NAME;
-import static com.android.inputmethod.latin.common.Constants.Subtype.KEYBOARD_MODE;
+import static com.tohsoft.common.latin.common.Constants.Subtype.ExtraValue.ASCII_CAPABLE;
+import static com.tohsoft.common.latin.common.Constants.Subtype.ExtraValue.EMOJI_CAPABLE;
+import static com.tohsoft.common.latin.common.Constants.Subtype.ExtraValue.IS_ADDITIONAL_SUBTYPE;
+import static com.tohsoft.common.latin.common.Constants.Subtype.ExtraValue.KEYBOARD_LAYOUT_SET;
+import static com.tohsoft.common.latin.common.Constants.Subtype.ExtraValue.UNTRANSLATABLE_STRING_IN_SUBTYPE_NAME;
+import static com.tohsoft.common.latin.common.Constants.Subtype.KEYBOARD_MODE;
 
 public final class AdditionalSubtypeUtils {
     private static final String TAG = AdditionalSubtypeUtils.class.getSimpleName();

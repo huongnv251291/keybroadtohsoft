@@ -16,7 +16,8 @@
 
 package com.tohsoft.keyboard.latin;
 
-import com.android.inputmethod.latin.common.Constants;
+
+import com.tohsoft.common.latin.common.Constants;
 
 import java.util.Locale;
 

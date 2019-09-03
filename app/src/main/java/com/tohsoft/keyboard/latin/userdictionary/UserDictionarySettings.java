@@ -38,7 +38,8 @@ import android.widget.SectionIndexer;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
-import com.android.inputmethod.latin.R;
+
+import com.tohsoft.keyboard.R;
 
 import java.util.Locale;
 

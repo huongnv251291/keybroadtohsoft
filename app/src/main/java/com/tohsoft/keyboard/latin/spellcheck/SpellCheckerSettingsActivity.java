@@ -21,10 +21,11 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
-import android.support.v4.app.ActivityCompat;
 
-import com.android.inputmethod.latin.permissions.PermissionsManager;
-import com.android.inputmethod.latin.utils.FragmentUtils;
+import androidx.core.app.ActivityCompat;
+
+import com.tohsoft.keyboard.latin.permissions.PermissionsManager;
+import com.tohsoft.keyboard.latin.utils.FragmentUtils;
 
 /**
  * Spell checker preference screen.

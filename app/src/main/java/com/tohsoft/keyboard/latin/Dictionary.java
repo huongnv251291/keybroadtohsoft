@@ -16,10 +16,10 @@
 
 package com.tohsoft.keyboard.latin;
 
-import com.android.inputmethod.annotations.UsedForTesting;
-import com.android.inputmethod.latin.SuggestedWords.SuggestedWordInfo;
-import com.android.inputmethod.latin.common.ComposedData;
-import com.android.inputmethod.latin.settings.SettingsValuesForSuggestion;
+
+import com.tohsoft.common.annotations.UsedForTesting;
+import com.tohsoft.common.latin.common.ComposedData;
+import com.tohsoft.keyboard.latin.settings.SettingsValuesForSuggestion;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -96,11 +96,11 @@ public abstract class Dictionary {
      * a float array that has only one element. This can be updated when a different value is used.
      * @return the list of suggestions (possibly null if none)
      */
-    abstract public ArrayList<SuggestedWordInfo> getSuggestions(final ComposedData composedData,
-                                                                final NgramContext ngramContext, final long proximityInfoHandle,
-                                                                final SettingsValuesForSuggestion settingsValuesForSuggestion,
-                                                                final int sessionId, final float weightForLocale,
-                                                                final float[] inOutWeightOfLangModelVsSpatialModel);
+    abstract public ArrayList<SuggestedWords.SuggestedWordInfo> getSuggestions(final ComposedData composedData,
+                                                                               final NgramContext ngramContext, final long proximityInfoHandle,
+                                                                               final SettingsValuesForSuggestion settingsValuesForSuggestion,
+                                                                               final int sessionId, final float weightForLocale,
+                                                                               final float[] inOutWeightOfLangModelVsSpatialModel);
 
     /**
      * Checks if the given word has to be treated as a valid word. Please note that some
@@ -173,7 +173,7 @@ public abstract class Dictionary {
      * @param candidate The candidate suggestion, in whole (not only the first part).
      * @return whether we should auto-commit or not.
      */
-    public boolean shouldAutoCommit(final SuggestedWordInfo candidate) {
+    public boolean shouldAutoCommit(final SuggestedWords.SuggestedWordInfo candidate) {
         // If we don't have support for auto-commit, or if we don't know, we return false to
         // avoid auto-committing stuff. Implementations of the Dictionary class that know to
         // determine whether we should auto-commit will override this.
@@ -200,11 +200,11 @@ public abstract class Dictionary {
         }
 
         @Override
-        public ArrayList<SuggestedWordInfo> getSuggestions(final ComposedData composedData,
-                                                           final NgramContext ngramContext, final long proximityInfoHandle,
-                                                           final SettingsValuesForSuggestion settingsValuesForSuggestion,
-                                                           final int sessionId, final float weightForLocale,
-                                                           final float[] inOutWeightOfLangModelVsSpatialModel) {
+        public ArrayList<SuggestedWords.SuggestedWordInfo> getSuggestions(final ComposedData composedData,
+                                                                          final NgramContext ngramContext, final long proximityInfoHandle,
+                                                                          final SettingsValuesForSuggestion settingsValuesForSuggestion,
+                                                                          final int sessionId, final float weightForLocale,
+                                                                          final float[] inOutWeightOfLangModelVsSpatialModel) {
             return null;
         }
 

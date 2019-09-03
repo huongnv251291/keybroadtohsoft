@@ -24,6 +24,7 @@ import com.tohsoft.common.latin.common.InputPointers;
 import com.tohsoft.keyboard.compat.LooperCompatUtils;
 import com.tohsoft.keyboard.latin.LatinIME;
 import com.tohsoft.keyboard.latin.Suggest;
+import com.tohsoft.keyboard.latin.SuggestedWords;
 
 
 /**
@@ -149,7 +150,7 @@ class InputLogicHandler implements Handler.Callback {
                 return;
             }
             mInputLogic.mWordComposer.setBatchInputPointers(batchPointers);
-            final OnGetSuggestedWordsCallback callback = new OnGetSuggestedWordsCallback() {
+            final Suggest.OnGetSuggestedWordsCallback callback = new Suggest.OnGetSuggestedWordsCallback() {
                 @Override
                 public void onGetSuggestedWords(final SuggestedWords suggestedWords) {
                     showGestureSuggestionsWithPreviewVisuals(suggestedWords, isTailBatchInput);

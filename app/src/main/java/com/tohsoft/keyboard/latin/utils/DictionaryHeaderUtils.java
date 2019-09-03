@@ -16,8 +16,9 @@
 
 package com.tohsoft.keyboard.latin.utils;
 
-import com.android.inputmethod.latin.AssetFileAddress;
-import com.android.inputmethod.latin.makedict.DictionaryHeader;
+
+import com.tohsoft.keyboard.latin.AssetFileAddress;
+import com.tohsoft.keyboard.latin.makedict.DictionaryHeader;
 
 import java.io.File;
 

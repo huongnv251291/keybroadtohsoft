@@ -19,7 +19,8 @@ package com.tohsoft.keyboard.latin.utils;
 import android.content.Context;
 import android.view.ContextThemeWrapper;
 
-import com.android.inputmethod.latin.R;
+import com.tohsoft.keyboard.R;
+
 
 public final class DialogUtils {
     private DialogUtils() {

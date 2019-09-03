@@ -16,7 +16,8 @@
 
 package com.tohsoft.keyboard.latin.makedict;
 
-import com.android.inputmethod.annotations.UsedForTesting;
+
+import com.tohsoft.common.annotations.UsedForTesting;
 
 import java.util.Arrays;
 

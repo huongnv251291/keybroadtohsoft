@@ -20,22 +20,27 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
+import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.inputmethod.InputMethodSubtype;
 
-import com.android.inputmethod.annotations.UsedForTesting;
-import com.android.inputmethod.dictionarypack.UpdateHandler;
-import com.android.inputmethod.latin.AssetFileAddress;
-import com.android.inputmethod.latin.BinaryDictionaryGetter;
-import com.android.inputmethod.latin.R;
-import com.android.inputmethod.latin.RichInputMethodManager;
-import com.android.inputmethod.latin.common.FileUtils;
-import com.android.inputmethod.latin.common.LocaleUtils;
-import com.android.inputmethod.latin.define.DecoderSpecificConstants;
-import com.android.inputmethod.latin.makedict.DictionaryHeader;
-import com.android.inputmethod.latin.makedict.UnsupportedFormatException;
-import com.android.inputmethod.latin.settings.SpacingAndPunctuations;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+
+import com.tohsoft.common.annotations.UsedForTesting;
+import com.tohsoft.keyboard.dictionarypack.UpdateHandler;
+import com.tohsoft.keyboard.latin.AssetFileAddress;
+import com.tohsoft.keyboard.latin.BinaryDictionaryGetter;
+import com.tohsoft.keyboard.R;
+import com.tohsoft.keyboard.latin.RichInputMethodManager;
+import com.tohsoft.common.latin.common.FileUtils;
+import com.tohsoft.common.latin.common.LocaleUtils;
+import com.tohsoft.keyboard.latin.define.DecoderSpecificConstants;
+import com.tohsoft.keyboard.latin.makedict.DictionaryHeader;
+import com.tohsoft.keyboard.latin.makedict.UnsupportedFormatException;
+import com.tohsoft.keyboard.latin.settings.SpacingAndPunctuations;
 
 import java.io.File;
 import java.io.FilenameFilter;
@@ -46,8 +51,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 /**
  * This class encapsulates the logic for the Latin-IME side of dictionary information management.
@@ -72,15 +75,16 @@ public class DictionaryInfoUtils {
         private static final String FILESIZE_COLUMN = "filesize";
         private static final String VERSION_COLUMN = "version";
 
-        @Nonnull public final String mId;
-        @Nonnull public final Locale mLocale;
+        @NonNull
+        public final String mId;
+        @NonNull public final Locale mLocale;
         @Nullable public final String mDescription;
         @Nullable public final String mFilename;
         public final long mFilesize;
         public final long mModifiedTimeMillis;
         public final int mVersion;
 
-        public DictionaryInfo(@Nonnull String id, @Nonnull Locale locale,
+        public DictionaryInfo(@NonNull String id, @NonNull Locale locale,
                               @Nullable String description, @Nullable String filename,
                               long filesize, long modifiedTimeMillis, int version) {
             mId = id;
@@ -177,8 +181,8 @@ public class DictionaryInfoUtils {
     /**
      * Reverse escaping done by {@link #replaceFileNameDangerousCharacters(String)}.
      */
-    @Nonnull
-    public static String getWordListIdFromFileName(@Nonnull final String fname) {
+    @NonNull
+    public static String getWordListIdFromFileName(@NonNull final String fname) {
         final StringBuilder sb = new StringBuilder();
         final int fnameLength = fname.length();
         for (int i = 0; i < fnameLength; i = fname.offsetByCodePoints(i, 1)) {
@@ -226,7 +230,7 @@ public class DictionaryInfoUtils {
      * @return The category as a string or null if it can't be found in the file name.
      */
     @Nullable
-    public static String getCategoryFromFileName(@Nonnull final String fileName) {
+    public static String getCategoryFromFileName(@NonNull final String fileName) {
         final String id = getWordListIdFromFileName(fileName);
         final String[] idArray = id.split(BinaryDictionaryGetter.ID_CATEGORY_SEPARATOR);
         // An id is supposed to be in format category:locale, so splitting on the separator
@@ -395,7 +399,7 @@ public class DictionaryInfoUtils {
      * unique ID to them. This ID is just the name of the language (locale-wise) they
      * are for, and this method returns this ID.
      */
-    public static String getMainDictId(@Nonnull final Locale locale) {
+    public static String getMainDictId(@NonNull final Locale locale) {
         // This works because we don't include by default different dictionaries for
         // different countries. This actually needs to return the id that we would
         // like to use for word lists included in resources, and the following is okay.
@@ -424,7 +428,7 @@ public class DictionaryInfoUtils {
      * @return information of the specified dictionary.
      */
     private static DictionaryInfo createDictionaryInfoFromFileAddress(
-            @Nonnull final AssetFileAddress fileAddress, final Locale locale) {
+            @NonNull final AssetFileAddress fileAddress, final Locale locale) {
         final String id = getMainDictId(locale);
         final int version = DictionaryHeaderUtils.getContentVersion(fileAddress);
         final String description = SubtypeLocaleUtils
@@ -444,7 +448,7 @@ public class DictionaryInfoUtils {
      */
     @Nullable
     private static DictionaryInfo createDictionaryInfoForUnCachedFile(
-            @Nonnull final AssetFileAddress fileAddress, final Locale locale) {
+            @NonNull final AssetFileAddress fileAddress, final Locale locale) {
         final String id = getMainDictId(locale);
         final int version = DictionaryHeaderUtils.getContentVersion(fileAddress);
 
@@ -490,6 +494,7 @@ public class DictionaryInfoUtils {
         dictList.add(newElement);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public static ArrayList<DictionaryInfo> getCurrentDictionaryFileNameAndVersionInfo(
             final Context context) {
         final ArrayList<DictionaryInfo> dictList = new ArrayList<>();

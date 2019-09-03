@@ -27,15 +27,16 @@ import android.os.RemoteException;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.android.inputmethod.dictionarypack.DictionaryPackConstants;
-import com.android.inputmethod.dictionarypack.MD5Calculator;
-import com.android.inputmethod.dictionarypack.UpdateHandler;
-import com.android.inputmethod.latin.common.FileUtils;
-import com.android.inputmethod.latin.define.DecoderSpecificConstants;
-import com.android.inputmethod.latin.utils.DictionaryInfoUtils;
-import com.android.inputmethod.latin.utils.DictionaryInfoUtils.DictionaryInfo;
-import com.android.inputmethod.latin.utils.FileTransforms;
-import com.android.inputmethod.latin.utils.MetadataFileUriGetter;
+
+import com.tohsoft.common.latin.common.FileUtils;
+import com.tohsoft.keyboard.R;
+import com.tohsoft.keyboard.dictionarypack.DictionaryPackConstants;
+import com.tohsoft.keyboard.dictionarypack.MD5Calculator;
+import com.tohsoft.keyboard.dictionarypack.UpdateHandler;
+import com.tohsoft.keyboard.latin.define.DecoderSpecificConstants;
+import com.tohsoft.keyboard.latin.utils.DictionaryInfoUtils;
+import com.tohsoft.keyboard.latin.utils.FileTransforms;
+import com.tohsoft.keyboard.latin.utils.MetadataFileUriGetter;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -512,11 +513,11 @@ public final class BinaryDictionaryFileDumper {
                 .appendPath(QUERY_PATH_DICT_INFO)
                 .appendQueryParameter(QUERY_PARAMETER_PROTOCOL, QUERY_PARAMETER_PROTOCOL_VALUE)
                 .build();
-        final ArrayList<DictionaryInfo> dictionaryList =
+        final ArrayList<DictionaryInfoUtils.DictionaryInfo> dictionaryList =
                 DictionaryInfoUtils.getCurrentDictionaryFileNameAndVersionInfo(context);
         final int length = dictionaryList.size();
         for (int i = 0; i < length; ++i) {
-            final DictionaryInfo info = dictionaryList.get(i);
+            final DictionaryInfoUtils.DictionaryInfo info = dictionaryList.get(i);
             Log.i(TAG, "reinitializeClientRecordInDictionaryContentProvider() : Insert " + info);
             client.insert(Uri.withAppendedPath(dictionaryContentUriBase, info.mId),
                     info.toContentValues());

@@ -25,11 +25,14 @@ import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.os.Build;
 import android.os.Process;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.inputmethod.InputMethodManager;
 import android.view.inputmethod.InputMethodSubtype;
+
+import androidx.annotation.RequiresApi;
 
 import com.tohsoft.keyboard.dictionarypack.DictionaryPackConstants;
 import com.tohsoft.keyboard.dictionarypack.DownloadManagerWrapper;
@@ -66,6 +69,7 @@ import com.tohsoft.keyboard.latin.utils.UncachedInputMethodManagerUtils;
 public final class SystemBroadcastReceiver extends BroadcastReceiver {
     private static final String TAG = SystemBroadcastReceiver.class.getSimpleName();
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onReceive(final Context context, final Intent intent) {
         final String intentAction = intent.getAction();

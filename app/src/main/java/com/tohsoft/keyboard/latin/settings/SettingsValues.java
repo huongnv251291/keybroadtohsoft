@@ -42,7 +42,7 @@ import java.util.Locale;
 
 /**
  * When you call the constructor of this class, you may want to change the current system locale by
- * using {@link com.android.inputmethod.latin.utils.RunInLocale}.
+ * using {@link com.tohsoft.keyboard.latin.utils.RunInLocale}.
  */
 // Non-final for testing via mock library.
 public class SettingsValues {

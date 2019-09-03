@@ -29,9 +29,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-import com.android.inputmethod.latin.R;
-import com.android.inputmethod.latin.userdictionary.UserDictionaryAddWordContents.LocaleRenderer;
-import com.android.inputmethod.latin.userdictionary.UserDictionaryLocalePicker.LocationChangedListener;
+import com.tohsoft.keyboard.R;
+import com.tohsoft.keyboard.latin.userdictionary.UserDictionaryAddWordContents.LocaleRenderer;
+import com.tohsoft.keyboard.latin.userdictionary.UserDictionaryLocalePicker.LocationChangedListener;
 
 import java.util.ArrayList;
 import java.util.Locale;

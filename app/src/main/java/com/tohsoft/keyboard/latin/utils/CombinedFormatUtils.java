@@ -16,10 +16,10 @@
 
 package com.tohsoft.keyboard.latin.utils;
 
-import com.android.inputmethod.latin.makedict.DictionaryHeader;
-import com.android.inputmethod.latin.makedict.NgramProperty;
-import com.android.inputmethod.latin.makedict.ProbabilityInfo;
-import com.android.inputmethod.latin.makedict.WordProperty;
+import com.tohsoft.keyboard.latin.makedict.DictionaryHeader;
+import com.tohsoft.keyboard.latin.makedict.NgramProperty;
+import com.tohsoft.keyboard.latin.makedict.ProbabilityInfo;
+import com.tohsoft.keyboard.latin.makedict.WordProperty;
 
 import java.util.HashMap;
 

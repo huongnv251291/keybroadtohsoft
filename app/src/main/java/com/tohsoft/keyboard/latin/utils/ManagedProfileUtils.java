@@ -18,7 +18,8 @@ package com.tohsoft.keyboard.latin.utils;
 
 import android.content.Context;
 
-import com.android.inputmethod.annotations.UsedForTesting;
+import com.tohsoft.common.annotations.UsedForTesting;
+
 
 public class ManagedProfileUtils {
     private static ManagedProfileUtils INSTANCE = new ManagedProfileUtils();

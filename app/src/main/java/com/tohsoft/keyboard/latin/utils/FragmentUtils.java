@@ -16,23 +16,23 @@
 
 package com.tohsoft.keyboard.latin.utils;
 
-import com.android.inputmethod.dictionarypack.DictionarySettingsFragment;
-import com.android.inputmethod.latin.about.AboutPreferences;
-import com.android.inputmethod.latin.settings.AccountsSettingsFragment;
-import com.android.inputmethod.latin.settings.AdvancedSettingsFragment;
-import com.android.inputmethod.latin.settings.AppearanceSettingsFragment;
-import com.android.inputmethod.latin.settings.CorrectionSettingsFragment;
-import com.android.inputmethod.latin.settings.CustomInputStyleSettingsFragment;
-import com.android.inputmethod.latin.settings.DebugSettingsFragment;
-import com.android.inputmethod.latin.settings.GestureSettingsFragment;
-import com.android.inputmethod.latin.settings.PreferencesSettingsFragment;
-import com.android.inputmethod.latin.settings.SettingsFragment;
-import com.android.inputmethod.latin.settings.ThemeSettingsFragment;
-import com.android.inputmethod.latin.spellcheck.SpellCheckerSettingsFragment;
-import com.android.inputmethod.latin.userdictionary.UserDictionaryAddWordFragment;
-import com.android.inputmethod.latin.userdictionary.UserDictionaryList;
-import com.android.inputmethod.latin.userdictionary.UserDictionaryLocalePicker;
-import com.android.inputmethod.latin.userdictionary.UserDictionarySettings;
+import com.tohsoft.keyboard.dictionarypack.DictionarySettingsFragment;
+import com.tohsoft.keyboard.latin.about.AboutPreferences;
+import com.tohsoft.keyboard.latin.settings.AccountsSettingsFragment;
+import com.tohsoft.keyboard.latin.settings.AdvancedSettingsFragment;
+import com.tohsoft.keyboard.latin.settings.AppearanceSettingsFragment;
+import com.tohsoft.keyboard.latin.settings.CorrectionSettingsFragment;
+import com.tohsoft.keyboard.latin.settings.CustomInputStyleSettingsFragment;
+import com.tohsoft.keyboard.latin.settings.DebugSettingsFragment;
+import com.tohsoft.keyboard.latin.settings.GestureSettingsFragment;
+import com.tohsoft.keyboard.latin.settings.PreferencesSettingsFragment;
+import com.tohsoft.keyboard.latin.settings.SettingsFragment;
+import com.tohsoft.keyboard.latin.settings.ThemeSettingsFragment;
+import com.tohsoft.keyboard.latin.spellcheck.SpellCheckerSettingsFragment;
+import com.tohsoft.keyboard.latin.userdictionary.UserDictionaryAddWordFragment;
+import com.tohsoft.keyboard.latin.userdictionary.UserDictionaryList;
+import com.tohsoft.keyboard.latin.userdictionary.UserDictionaryLocalePicker;
+import com.tohsoft.keyboard.latin.userdictionary.UserDictionarySettings;
 
 import java.util.HashSet;
 

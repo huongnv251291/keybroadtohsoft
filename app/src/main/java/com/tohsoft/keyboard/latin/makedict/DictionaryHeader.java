@@ -17,20 +17,23 @@
 package com.tohsoft.keyboard.latin.makedict;
 
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 /**
  * Class representing dictionary header.
  */
 public final class DictionaryHeader {
     public final int mBodyOffset;
-    @Nonnull
-    public final DictionaryOptions mDictionaryOptions;
-    @Nonnull
-    public final FormatOptions mFormatOptions;
-    @Nonnull
+    @NonNull
+    public final FormatSpec.DictionaryOptions mDictionaryOptions;
+    @NonNull
+    public final FormatSpec.FormatOptions mFormatOptions;
+    @NonNull
     public final String mLocaleString;
-    @Nonnull
+    @NonNull
     public final String mVersionString;
-    @Nonnull
+    @NonNull
     public final String mIdString;
 
     // Note that these are corresponding definitions in native code in latinime::HeaderPolicy
@@ -53,8 +56,8 @@ public final class DictionaryHeader {
     public static final String CODE_POINT_TABLE_KEY = "codePointTable";
 
     public DictionaryHeader(final int headerSize,
-            @Nonnull final DictionaryOptions dictionaryOptions,
-            @Nonnull final FormatOptions formatOptions) throws UnsupportedFormatException {
+            @NonNull final FormatSpec.DictionaryOptions dictionaryOptions,
+            @NonNull final FormatSpec.FormatOptions formatOptions) throws UnsupportedFormatException {
         mDictionaryOptions = dictionaryOptions;
         mFormatOptions = formatOptions;
         mBodyOffset = formatOptions.mVersion < FormatSpec.VERSION4 ? headerSize : 0;

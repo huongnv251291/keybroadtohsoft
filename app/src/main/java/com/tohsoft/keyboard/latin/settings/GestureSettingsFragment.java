@@ -18,7 +18,8 @@ package com.tohsoft.keyboard.latin.settings;
 
 import android.os.Bundle;
 
-import com.android.inputmethod.latin.R;
+import com.tohsoft.keyboard.R;
+
 
 /**
  * "Gesture typing preferences" settings sub screen.

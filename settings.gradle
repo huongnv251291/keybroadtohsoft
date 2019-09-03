@@ -1,3 +1,2 @@
-include ':app', ':common', ':mylibrary', ':dicttool'
-include  ':java-overridable'
+include ':app', ':common', ':inputmenthodcommon', ':native'
 rootProject.name='My Application'

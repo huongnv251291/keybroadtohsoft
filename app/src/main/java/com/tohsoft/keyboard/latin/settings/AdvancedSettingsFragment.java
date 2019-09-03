@@ -16,6 +16,7 @@
 
 package com.tohsoft.keyboard.latin.settings;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
@@ -23,9 +24,9 @@ import android.media.AudioManager;
 import android.os.Bundle;
 import android.preference.ListPreference;
 
-import com.android.inputmethod.latin.AudioAndHapticFeedbackManager;
-import com.android.inputmethod.latin.R;
-import com.android.inputmethod.latin.SystemBroadcastReceiver;
+import com.tohsoft.keyboard.latin.AudioAndHapticFeedbackManager;
+import com.tohsoft.keyboard.R;
+import com.tohsoft.keyboard.latin.SystemBroadcastReceiver;
 
 /**
  * "Advanced" settings sub screen.
@@ -155,6 +156,7 @@ public final class AdvancedSettingsFragment extends SubScreenFragment {
                 AudioAndHapticFeedbackManager.getInstance().vibrate(value);
             }
 
+            @SuppressLint("StringFormatMatches")
             @Override
             public String getValueText(final int value) {
                 if (value < 0) {
@@ -250,6 +252,7 @@ public final class AdvancedSettingsFragment extends SubScreenFragment {
                 return Settings.readDefaultKeyLongpressTimeout(res);
             }
 
+            @SuppressLint("StringFormatMatches")
             @Override
             public String getValueText(final int value) {
                 return res.getString(R.string.abbreviation_unit_milliseconds, value);

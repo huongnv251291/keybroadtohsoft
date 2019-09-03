@@ -19,20 +19,23 @@ package com.tohsoft.keyboard.latin;
 import android.content.Context;
 import android.util.Log;
 
-import com.android.inputmethod.annotations.UsedForTesting;
-import com.android.inputmethod.latin.SuggestedWords.SuggestedWordInfo;
-import com.android.inputmethod.latin.common.ComposedData;
-import com.android.inputmethod.latin.common.FileUtils;
-import com.android.inputmethod.latin.define.DecoderSpecificConstants;
-import com.android.inputmethod.latin.makedict.DictionaryHeader;
-import com.android.inputmethod.latin.makedict.FormatSpec;
-import com.android.inputmethod.latin.makedict.UnsupportedFormatException;
-import com.android.inputmethod.latin.makedict.WordProperty;
-import com.android.inputmethod.latin.settings.SettingsValuesForSuggestion;
-import com.android.inputmethod.latin.utils.AsyncResultHolder;
-import com.android.inputmethod.latin.utils.CombinedFormatUtils;
-import com.android.inputmethod.latin.utils.ExecutorUtils;
-import com.android.inputmethod.latin.utils.WordInputEventForPersonalization;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.tohsoft.common.annotations.UsedForTesting;
+import com.tohsoft.common.latin.common.ComposedData;
+import com.tohsoft.common.latin.common.FileUtils;
+import com.tohsoft.keyboard.latin.define.DecoderSpecificConstants;
+import com.tohsoft.keyboard.latin.makedict.DictionaryHeader;
+import com.tohsoft.keyboard.latin.makedict.FormatSpec;
+import com.tohsoft.keyboard.latin.makedict.UnsupportedFormatException;
+import com.tohsoft.keyboard.latin.makedict.WordProperty;
+import com.tohsoft.keyboard.latin.settings.SettingsValuesForSuggestion;
+import com.tohsoft.keyboard.latin.utils.AsyncResultHolder;
+import com.tohsoft.keyboard.latin.utils.CombinedFormatUtils;
+import com.tohsoft.keyboard.latin.utils.ExecutorUtils;
+import com.tohsoft.keyboard.latin.utils.WordInputEventForPersonalization;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -45,8 +48,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 /**
  * Abstract base class for an expandable dictionary that can be created and updated dynamically
@@ -276,7 +277,7 @@ abstract public class ExpandableBinaryDictionary extends Dictionary {
         }
     }
 
-    private void updateDictionaryWithWriteLock(@Nonnull final Runnable updateTask) {
+    private void updateDictionaryWithWriteLock(@NonNull final Runnable updateTask) {
         reloadDictionaryIfRequired();
         final Runnable task = new Runnable() {
             @Override
@@ -337,7 +338,7 @@ abstract public class ExpandableBinaryDictionary extends Dictionary {
     /**
      * Adds n-gram information of a word to the dictionary. May overwrite an existing entry.
      */
-    public void addNgramEntry(@Nonnull final NgramContext ngramContext, final String word,
+    public void addNgramEntry(@NonNull final NgramContext ngramContext, final String word,
             final int frequency, final int timestamp) {
         reloadDictionaryIfRequired();
         asyncExecuteTaskWithWriteLock(new Runnable() {
@@ -352,7 +353,7 @@ abstract public class ExpandableBinaryDictionary extends Dictionary {
         });
     }
 
-    protected void addNgramEntryLocked(@Nonnull final NgramContext ngramContext, final String word,
+    protected void addNgramEntryLocked(@NonNull final NgramContext ngramContext, final String word,
             final int frequency, final int timestamp) {
         if (!mBinaryDictionary.addNgramEntry(ngramContext, word, frequency, timestamp)) {
             if (DEBUG) {
@@ -365,7 +366,7 @@ abstract public class ExpandableBinaryDictionary extends Dictionary {
     /**
      * Update dictionary for the word with the ngramContext.
      */
-    public void updateEntriesForWord(@Nonnull final NgramContext ngramContext,
+    public void updateEntriesForWord(@NonNull final NgramContext ngramContext,
                                      final String word, final boolean isValidWord, final int count, final int timestamp) {
         updateDictionaryWithWriteLock(new Runnable() {
             @Override
@@ -402,7 +403,7 @@ abstract public class ExpandableBinaryDictionary extends Dictionary {
      */
     @UsedForTesting
     public void updateEntriesForInputEvents(
-            @Nonnull final ArrayList<WordInputEventForPersonalization> inputEvents,
+            @NonNull final ArrayList<WordInputEventForPersonalization> inputEvents,
             final UpdateEntriesForInputEventsCallback callback) {
         reloadDictionaryIfRequired();
         asyncExecuteTaskWithWriteLock(new Runnable() {
@@ -426,10 +427,10 @@ abstract public class ExpandableBinaryDictionary extends Dictionary {
     }
 
     @Override
-    public ArrayList<SuggestedWordInfo> getSuggestions(final ComposedData composedData,
-                                                       final NgramContext ngramContext, final long proximityInfoHandle,
-                                                       final SettingsValuesForSuggestion settingsValuesForSuggestion, final int sessionId,
-                                                       final float weightForLocale, final float[] inOutWeightOfLangModelVsSpatialModel) {
+    public ArrayList<SuggestedWords.SuggestedWordInfo> getSuggestions(final ComposedData composedData,
+                                                                      final NgramContext ngramContext, final long proximityInfoHandle,
+                                                                      final SettingsValuesForSuggestion settingsValuesForSuggestion, final int sessionId,
+                                                                      final float weightForLocale, final float[] inOutWeightOfLangModelVsSpatialModel) {
         reloadDictionaryIfRequired();
         boolean lockAcquired = false;
         try {
@@ -439,7 +440,7 @@ abstract public class ExpandableBinaryDictionary extends Dictionary {
                 if (mBinaryDictionary == null) {
                     return null;
                 }
-                final ArrayList<SuggestedWordInfo> suggestions =
+                final ArrayList<SuggestedWords.SuggestedWordInfo> suggestions =
                         mBinaryDictionary.getSuggestions(composedData, ngramContext,
                                 proximityInfoHandle, settingsValuesForSuggestion, sessionId,
                                 weightForLocale, inOutWeightOfLangModelVsSpatialModel);
@@ -525,7 +526,7 @@ abstract public class ExpandableBinaryDictionary extends Dictionary {
                 Thread.sleep(15000);
                 Log.w(TAG, "End stress in loading");
             } catch (InterruptedException e) {
-                Log.w("Interrupted while loading: " + mDictName, e);
+                Log.w("Interrupted while " + mDictName, e);
             }
         }
         final BinaryDictionary oldBinaryDictionary = mBinaryDictionary;

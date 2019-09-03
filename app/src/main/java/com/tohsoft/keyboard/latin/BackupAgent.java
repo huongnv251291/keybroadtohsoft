@@ -22,7 +22,8 @@ import android.app.backup.SharedPreferencesBackupHelper;
 import android.content.SharedPreferences;
 import android.os.ParcelFileDescriptor;
 
-import com.android.inputmethod.latin.settings.LocalSettingsConstants;
+
+import com.tohsoft.keyboard.latin.settings.LocalSettingsConstants;
 
 import java.io.IOException;
 
