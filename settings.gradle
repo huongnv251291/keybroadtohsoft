@@ -1,2 +1,2 @@
-include ':app', ':common', ':inputmenthodcommon', ':native'
+include ':app', ':common', ':inputmenthodcommon'
 rootProject.name='My Application'

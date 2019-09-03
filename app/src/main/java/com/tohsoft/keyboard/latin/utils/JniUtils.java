@@ -24,13 +24,7 @@ import com.tohsoft.keyboard.latin.define.JniLibName;
 public final class JniUtils {
     private static final String TAG = JniUtils.class.getSimpleName();
 
-    static {
-        try {
-            System.loadLibrary(JniLibName.JNI_LIB_NAME);
-        } catch (UnsatisfiedLinkError ule) {
-            Log.e(TAG, "Could not load native library " + JniLibName.JNI_LIB_NAME, ule);
-        }
-    }
+
 
     private JniUtils() {
         // This utility class is not publicly instantiable.
@@ -38,5 +32,6 @@ public final class JniUtils {
 
     public static void loadNativeLibrary() {
         // Ensures the static initializer is called
+        System.loadLibrary(JniLibName.JNI_LIB_NAME);
     }
 }
