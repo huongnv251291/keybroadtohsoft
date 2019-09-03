@@ -17,7 +17,6 @@ ifeq (,$(TARGET_BUILD_APPS))
 
 # HACK: Temporarily disable host tool build on Mac until the build system is ready for C++11.
 LATINIME_HOST_OSNAME := $(shell uname -s)
-ifneq ($(LATINIME_HOST_OSNAME), Darwin) # TODO: Remove this
 
 LOCAL_PATH := $(call my-dir)
 
@@ -28,7 +27,6 @@ include $(LOCAL_PATH)/NativeFileList.mk
 
 include $(LOCAL_PATH)/CleanupNativeFileList.mk
 
-endif # Darwin - TODO: Remove this
 
 endif # TARGET_BUILD_APPS
 
