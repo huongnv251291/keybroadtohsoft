@@ -23,7 +23,6 @@
 #include "defines.h"
 #include "jni.h"
 #include "suggest/core/layout/proximity_info_utils.h"
-#include "c"
 
 namespace latinime {
 

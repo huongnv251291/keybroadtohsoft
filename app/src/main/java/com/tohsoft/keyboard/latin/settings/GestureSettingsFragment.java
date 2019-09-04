@@ -31,6 +31,9 @@ import com.tohsoft.keyboard.R;
  * - Phrase gesture
  */
 public final class GestureSettingsFragment extends SubScreenFragment {
+    public GestureSettingsFragment() {
+    }
+
     @Override
     public void onCreate(final Bundle icicle) {
         super.onCreate(icicle);

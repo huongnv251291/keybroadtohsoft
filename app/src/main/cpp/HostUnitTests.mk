@@ -17,6 +17,7 @@ ifeq (,$(TARGET_BUILD_APPS))
 
 # HACK: Temporarily disable host tool build on Mac until the build system is ready for C++11.
 LATINIME_HOST_OSNAME := $(shell uname -s)
+ifneq ($(LATINIME_HOST_OSNAME), Darwin) # TODO: Remove this
 
 LOCAL_PATH := $(call my-dir)
 
@@ -25,8 +26,34 @@ include $(CLEAR_VARS)
 
 include $(LOCAL_PATH)/NativeFileList.mk
 
+#################### Host library for unit test
+LATIN_IME_SRC_DIR := src
+LOCAL_ADDRESS_SANITIZER := true
+LOCAL_CFLAGS += -Wno-unused-parameter -Wno-unused-function -Wall -Werror
+LOCAL_CXX_STL := libc++
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/$(LATIN_IME_SRC_DIR)
+LOCAL_MODULE := liblatinime_host_static_for_unittests
+LOCAL_MODULE_TAGS := optional
+LOCAL_SRC_FILES := $(addprefix $(LATIN_IME_SRC_DIR)/, $(LATIN_IME_CORE_SRC_FILES))
+
+
+#################### Host native tests
+include $(CLEAR_VARS)
+LATIN_IME_TEST_SRC_DIR := tests
+LOCAL_ADDRESS_SANITIZER := true
+LOCAL_CFLAGS += -Wno-unused-parameter -Wno-unused-function
+LOCAL_CFLAGS += -Wall -Werror
+LOCAL_CXX_STL := libc++
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/$(LATIN_IME_SRC_DIR)
+LOCAL_MODULE := liblatinime_host_unittests
+LOCAL_MODULE_TAGS := tests
+LOCAL_SRC_FILES := $(addprefix $(LATIN_IME_TEST_SRC_DIR)/, $(LATIN_IME_CORE_TEST_FILES))
+LOCAL_STATIC_LIBRARIES += liblatinime_host_static_for_unittests
+include $(BUILD_HOST_NATIVE_TEST)
+
 include $(LOCAL_PATH)/CleanupNativeFileList.mk
 
+endif # Darwin - TODO: Remove this
 
 endif # TARGET_BUILD_APPS
 

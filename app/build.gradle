@@ -19,9 +19,10 @@ android {
     }
     externalNativeBuild {
         ndkBuild {
-            path file('Android.mk')
+            path file('src/main/cpp/Android.mk')
         }
     }
+
 }
 
 dependencies {
